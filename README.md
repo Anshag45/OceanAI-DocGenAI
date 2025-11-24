@@ -1,106 +1,98 @@
-🌊 OceanAI-DocGenAI
+OceanAI-DocGenAI
 AI-Assisted Document Authoring & Generation Platform
 
-OceanAI-DocGenAI is a full-stack AI application that allows users to create structured business documents using AI (Gemini).
-Users can generate, refine, and export documents in DOCX and PPTX formats through an intuitive web interface.
-
-✨ Built for the assignment:
-Login → Configure → Generate → Refine → Export
+OceanAI-DocGenAI is a full-stack application for generating, refining, and exporting structured business documents using AI.
+The system supports both Word (.docx) and PowerPoint (.pptx) formats and provides a guided workflow from document configuration to export.
 
 🚀 Features
-🔐 Authentication
+AI-Powered Content Generation
 
-User Registration
+Section-wise (DOCX) and slide-wise (PPTX) content generation
 
-Login
+Uses Google Gemini for generation and refinement
 
-JWT-based secure routes
+Optional AI-generated outlines
 
-📁 Project Management
+Refinement Workflow
 
-Create DOCX or PPTX projects
+Per-section refinement prompts
 
-Add section headers / slide titles
+Like/Dislike feedback
 
-Dashboard to view all projects
+Commenting and revision history
 
-🤖 AI Content Generation (Gemini)
+Persistent storage of all edits
 
-Section-wise content generation
+Document Export
 
-Slide-wise content generation
+Exports to .docx using python-docx
 
-Optional AI-suggested outline
+Exports to .pptx using python-pptx
 
-All data persisted in database
+Clean structured formatting
 
-✏️ Refinement Interface
+User & Project Management
 
-Refinement prompt per section/slide
+User registration and login
 
-Like / Dislike feedback
+JWT authentication
 
-Comments stored in DB
+Dashboard with all projects
 
-Multiple refinement cycles
-
-📤 Export
-
-Export Word (.docx) using python-docx
-
-Export PowerPoint (.pptx) using python-pptx
-
-Clean formatting and proper structure
+Project configuration (DOCX/PPTX)
 
 🧩 Tech Stack
 Frontend
 
 React + TypeScript
 
-Tailwind & Component-based UI
+Vite / Modern component structure
 
-Fetch API to interact with backend
+REST API communication
 
 Backend
 
 FastAPI
 
-Gemini (Google Generative AI)
+Google Gemini API
 
 SQLAlchemy ORM
 
-JWT Authentication
-
-python-docx + python-pptx
+python-docx & python-pptx
 
 Database
 
-SQLite (can be swapped with PostgreSQL)
+SQLite (configurable to PostgreSQL)
 
-📂 Folder Structure
+📂 Project Structure
 OceanAI-DocGenAI/
 │
-│── backend/
-│     ├── main.py
-│     ├── database.py
-│     ├── models.py
-│     ├── schemas.py
-│     ├── requirements.txt
-│     ├── .env.example
-│     ├── routers/
-│     ├── services/
-│     └── utils/
+├── backend/
+│   ├── main.py
+│   ├── database.py
+│   ├── models.py
+│   ├── schemas.py
+│   ├── requirements.txt
+│   ├── .env.example
+│   ├── routers/
+│   │   ├── auth_router.py
+│   │   ├── project_router.py
+│   │   └── refine_router.py
+│   ├── services/
+│   │   ├── ai_service.py
+│   │   ├── export_docx.py
+│   │   └── export_pptx.py
+│   └── utils/
+│       └── jwt_handler.py
 │
-│── frontend/
-│     ├── src/
-│     ├── components/
-│     ├── pages/
-│     ├── package.json
-│     └── ...
-│
-└── README.md
+└── frontend/
+    ├── src/
+    ├── components/
+    ├── pages/
+    ├── package.json
+    └── vite.config.ts
 
-⚙️ Backend Setup (FastAPI + Gemini)
+⚙️ Backend Setup
 1. Create Virtual Environment
 cd backend
 python -m venv venv
@@ -108,36 +100,33 @@ python -m venv venv
 
 Activate:
 
-Windows:
+Windows
 
 venv\Scripts\activate
 
 
-Mac/Linux:
+Linux/Mac
 
 source venv/bin/activate
 
-2. Install Requirements
+2. Install Dependencies
 pip install -r requirements.txt
 
-3. Add Environment Variables
+3. Configure Environment Variables
 
 Copy .env.example → .env
 
-GEMINI_API_KEY=your_real_api_key
+GEMINI_API_KEY=<your_api_key>
 GEMINI_MODEL=gemini-pro
-SECRET_KEY=super-secret-key
+SECRET_KEY=<jwt_secret>
 DATABASE_URL=sqlite:///./app.db
 
-4. Run Server
+4. Run Backend Server
 uvicorn main:app --reload
 
 
-Backend runs at:
-👉 http://localhost:8000
-
-Swagger API Docs:
-👉 http://localhost:8000/docs
+API Docs:
+http://localhost:8000/docs
 
 🖥️ Frontend Setup
 cd frontend
@@ -145,84 +134,27 @@ npm install
 npm run dev
 
 
-or (depending on your setup):
+Runs at:
+http://localhost:3000
 
-pnpm install
-pnpm dev
-
-
-Frontend runs at:
-👉 http://localhost:3000
-
-🔌 Connecting Frontend & Backend
-
-Update your frontend .env or API config with:
-
-VITE_API_URL=http://localhost:8000
-
-📡 API Endpoints Overview
+🔌 API Endpoints Overview
 Auth
-Method	Route	Purpose
-POST	/auth/register	Register user
-POST	/auth/login	Login + JWT
-Projects
-Method	Route	Purpose
-POST	/project/create	Create project
+Method	Route	Description
+POST	/auth/register	User registration
+POST	/auth/login	Login and receive JWT
+Project
+Method	Route	Description
+POST	/project/create	Create a project
 POST	/project/{id}/generate	Generate AI content
-GET	/project/{id}	Fetch project
+GET	/project/{id}	Fetch project details
 Refinement
-Method	Route	Purpose
-POST	/refine	Refine one section
-🎥 Demo Checklist (for video)
+Method	Route	Description
+POST	/refine	Refine section content
+📤 Exporting Documents
 
-Your video should cover:
+DOCX files generated using python-docx
 
-✔ Login / Register
-✔ Create DOCX project
-✔ Add outline → Generate content
-✔ Refine a section with AI prompt
-✔ Export DOCX
-✔ Create PPTX project
-✔ Generate slides → Export PPTX
-✔ Quick look at backend code + API docs
+PPTX files generated using python-pptx
 
-🧪 Testing
+Exports stored in /exports/ directory
 
-You can test all backend routes via Swagger UI:
-👉 http://localhost:8000/docs
-
-📦 Deployment (Optional)
-
-Backend → Render / Railway / Fly.io
-
-Frontend → Vercel / Netlify
-
-DB → SQLite local or switch to PostgreSQL for production
-
-🙌 Acknowledgements
-
-Google Gemini API
-
-FastAPI
-
-React
-
-python-docx & python-pptx
-
-⭐ Conclusion
-
-This project fulfills 100% of the assignment requirements, including:
-
-Authentication
-
-Document configuration
-
-AI generation
-
-Refinement UI
-
-Export functionality
-
-Clean codebase
-
-Proper documentation
