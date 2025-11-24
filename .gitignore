@@ -1,0 +1,23 @@
+﻿# Node / Frontend
+node_modules/
+frontend/node_modules/
+dist/
+build/
+.next/
+.vscode/
+.env
+.env.local
+yarn.lock
+pnpm-lock.yaml
+package-lock.json
+
+# Python / Backend
+backend/venv/
+__pycache__/
+*.pyc
+app.db
+exports/
+
+# OS
+Thumbs.db
+.DS_Store
