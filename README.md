@@ -1,51 +1,45 @@
 🌊 OceanAI-DocGenAI
 AI-Assisted Document Authoring & Generation Platform
 
-OceanAI-DocGenAI is a full-stack, end-to-end platform for generating, refining, and exporting business documents using AI.
-It supports Word (.docx) and PowerPoint (.pptx) generation, provides a guided refinement workflow, and includes complete project/user management.
+OceanAI-DocGenAI is a full-stack AI platform that generates, refines, and exports business documents in Word (.docx) and PowerPoint (.pptx) formats.
+It features AI-driven content creation, a structured refinement workflow, and complete project/user management.
 
 🚀 Features
-AI-Powered Content Generation
+🔹 AI-Powered Content Generation
 
-Slide-wise / section-wise content generation
+Section-wise and slide-wise AI content
 
-Optional AI-generated document outlines
+Optional AI-generated outlines
 
-Powered by Google Gemini
+Uses Google Gemini for generation & refinement
 
-Automated content refinement and regeneration
-
-Refinement Workflow
+🔹 Intelligent Refinement Workflow
 
 Per-section refinement prompts
 
 Like/Dislike feedback
 
-Commenting system
+Commenting + revision history
 
-Revision history
+Persistent storage for all edits
 
-Persistent storage of all edits in database
+🔹 Document Export
 
-Document Export
+Clean, professional .docx export (python-docx)
 
-Export to .docx using python-docx
+Structured .pptx export (python-pptx)
 
-Export to .pptx using python-pptx
+Files stored automatically inside /exports/
 
-Clean, structured formatting tailored for business use
+🔹 User & Project Management
 
-User & Project Management
-
-User registration and login
+User registration & login
 
 JWT-based authentication
 
-Dashboard with all saved projects
+Project dashboard
 
-Choice of document type (DOCX / PPTX)
-
-Full project configuration flow
+Document configuration (DOCX / PPTX)
 
 🧩 Tech Stack
 Frontend
@@ -54,9 +48,9 @@ React + TypeScript
 
 Vite
 
-Component-based modern UI architecture
+Component-based architecture
 
-REST API integration
+REST API communication
 
 Backend
 
@@ -109,34 +103,34 @@ OceanAI-DocGenAI/
 cd backend
 python -m venv venv
 
-Activate
+2. Activate Environment
 
 Windows
 
 venv\Scripts\activate
 
 
-Linux / Mac
+Mac/Linux
 
 source venv/bin/activate
 
-2. Install Dependencies
+3. Install Dependencies
 pip install -r requirements.txt
 
-3. Configure Environment Variables
+4. Configure Environment Variables
 
-Copy .env.example → .env and update:
+Copy .env.example → .env and set:
 
 GEMINI_API_KEY=<your_api_key>
 GEMINI_MODEL=gemini-pro
 SECRET_KEY=<jwt_secret>
 DATABASE_URL=sqlite:///./app.db
 
-4. Run Backend Server
+5. Start Backend Server
 uvicorn main:app --reload
 
 
-API Docs available at:
+API Documentation:
 👉 http://localhost:8000/docs
 
 🖥️ Frontend Setup
@@ -145,40 +139,41 @@ npm install
 npm run dev
 
 
-Runs at:
+Frontend runs at:
 👉 http://localhost:3000
 
 🔌 API Endpoints Overview
-Auth
+Auth Endpoints
 Method	Route	Description
 POST	/auth/register	User registration
-POST	/auth/login	Login and receive JWT
-Project
+POST	/auth/login	Login & get JWT
+Project Endpoints
 Method	Route	Description
-POST	/project/create	Create a project
-POST	/project/{id}/generate	Generate AI content
-GET	/project/{id}	Fetch project details
-Refinement
+POST	/project/create	Create a new project
+POST	/project/{id}/generate	Generate AI document content
+GET	/project/{id}	Fetch full project details
+Refinement Endpoints
 Method	Route	Description
-POST	/refine	Refine content section/slide
+POST	/refine	Refine specific section/slide
 📤 Document Export
 
-.docx generated using python-docx
+.docx export using python-docx
 
-.pptx generated using python-pptx
+.pptx export using python-pptx
 
-Exports saved in:
+Files saved to:
 
 /exports/
 
-📌 Future Enhancements (Optional Section)
+📌 Future Enhancements
 
-Multi-language document generation
+Multi-language content generation
 
-Collaboration mode
+Advanced formatting presets
 
-Custom styling presets for PPTX/DOCX
+Real-time collaboration
 
-Role-based access control
+Admin & analytics dashboard
 
-Admin dashboard
+Template-based export system
+
