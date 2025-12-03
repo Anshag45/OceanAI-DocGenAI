@@ -1,17 +1,19 @@
-OceanAI-DocGenAI
+🌊 OceanAI-DocGenAI
 AI-Assisted Document Authoring & Generation Platform
 
-OceanAI-DocGenAI is a full-stack application for generating, refining, and exporting structured business documents using AI.
-The system supports both Word (.docx) and PowerPoint (.pptx) formats and provides a guided workflow from document configuration to export.
+OceanAI-DocGenAI is a full-stack, end-to-end platform for generating, refining, and exporting business documents using AI.
+It supports Word (.docx) and PowerPoint (.pptx) generation, provides a guided refinement workflow, and includes complete project/user management.
 
 🚀 Features
 AI-Powered Content Generation
 
-Section-wise (DOCX) and slide-wise (PPTX) content generation
+Slide-wise / section-wise content generation
 
-Uses Google Gemini for generation and refinement
+Optional AI-generated document outlines
 
-Optional AI-generated outlines
+Powered by Google Gemini
+
+Automated content refinement and regeneration
 
 Refinement Workflow
 
@@ -19,36 +21,42 @@ Per-section refinement prompts
 
 Like/Dislike feedback
 
-Commenting and revision history
+Commenting system
 
-Persistent storage of all edits
+Revision history
+
+Persistent storage of all edits in database
 
 Document Export
 
-Exports to .docx using python-docx
+Export to .docx using python-docx
 
-Exports to .pptx using python-pptx
+Export to .pptx using python-pptx
 
-Clean structured formatting
+Clean, structured formatting tailored for business use
 
 User & Project Management
 
 User registration and login
 
-JWT authentication
+JWT-based authentication
 
-Dashboard with all projects
+Dashboard with all saved projects
 
-Project configuration (DOCX/PPTX)
+Choice of document type (DOCX / PPTX)
+
+Full project configuration flow
 
 🧩 Tech Stack
 Frontend
 
 React + TypeScript
 
-Vite / Modern component structure
+Vite
 
-REST API communication
+Component-based modern UI architecture
+
+REST API integration
 
 Backend
 
@@ -60,9 +68,13 @@ SQLAlchemy ORM
 
 python-docx & python-pptx
 
+JWT authentication
+
 Database
 
-SQLite (configurable to PostgreSQL)
+SQLite (default)
+
+Easily configurable to PostgreSQL
 
 📂 Project Structure
 OceanAI-DocGenAI/
@@ -97,15 +109,14 @@ OceanAI-DocGenAI/
 cd backend
 python -m venv venv
 
-
-Activate:
+Activate
 
 Windows
 
 venv\Scripts\activate
 
 
-Linux/Mac
+Linux / Mac
 
 source venv/bin/activate
 
@@ -114,7 +125,7 @@ pip install -r requirements.txt
 
 3. Configure Environment Variables
 
-Copy .env.example → .env
+Copy .env.example → .env and update:
 
 GEMINI_API_KEY=<your_api_key>
 GEMINI_MODEL=gemini-pro
@@ -125,8 +136,8 @@ DATABASE_URL=sqlite:///./app.db
 uvicorn main:app --reload
 
 
-API Docs:
-http://localhost:8000/docs
+API Docs available at:
+👉 http://localhost:8000/docs
 
 🖥️ Frontend Setup
 cd frontend
@@ -135,7 +146,7 @@ npm run dev
 
 
 Runs at:
-http://localhost:3000
+👉 http://localhost:3000
 
 🔌 API Endpoints Overview
 Auth
@@ -149,12 +160,25 @@ POST	/project/{id}/generate	Generate AI content
 GET	/project/{id}	Fetch project details
 Refinement
 Method	Route	Description
-POST	/refine	Refine section content
-📤 Exporting Documents
+POST	/refine	Refine content section/slide
+📤 Document Export
 
-DOCX files generated using python-docx
+.docx generated using python-docx
 
-PPTX files generated using python-pptx
+.pptx generated using python-pptx
 
-Exports stored in /exports/ directory
+Exports saved in:
 
+/exports/
+
+📌 Future Enhancements (Optional Section)
+
+Multi-language document generation
+
+Collaboration mode
+
+Custom styling presets for PPTX/DOCX
+
+Role-based access control
+
+Admin dashboard
