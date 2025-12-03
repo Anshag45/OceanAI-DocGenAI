@@ -71,31 +71,38 @@ SQLite (default)
 Easily configurable to PostgreSQL
 
 📂 Project Structure
+
+
+
 OceanAI-DocGenAI/
 ├── backend/
-│   ├── main.py
-│   ├── database.py
-│   ├── models.py
-│   ├── schemas.py
-│   ├── requirements.txt
-│   ├── .env.example
-│   ├── routers/
-│   │   ├── auth_router.py
-│   │   ├── project_router.py
-│   │   └── refine_router.py
-│   ├── services/
-│   │   ├── ai_service.py
-│   │   ├── export_docx.py
-│   │   └── export_pptx.py
-│   └── utils/
-│       └── jwt_handler.py
+│ ├── main.py
+│ ├── database.py
+│ ├── models.py
+│ ├── schemas.py
+│ ├── requirements.txt
+│ ├── .env.example
+│ ├── routers/
+│ │ ├── auth_router.py
+│ │ ├── project_router.py
+│ │ └── refine_router.py
+│ ├── services/
+│ │ ├── ai_service.py
+│ │ ├── export_docx.py
+│ │ └── export_pptx.py
+│ └── utils/
+│ └── jwt_handler.py
 │
 └── frontend/
-    ├── src/
-    ├── components/
-    ├── pages/
-    ├── package.json
-    └── vite.config.ts
+├── src/
+├── components/
+├── pages/
+├── package.json
+└── vite.config.ts
+
+
+
+
 
 ⚙️ Backend Setup
 1. Navigate to backend & create virtual environment
