@@ -2,34 +2,36 @@
 AI-Assisted Document Authoring & Generation Platform
 
 OceanAI-DocGenAI is a full-stack AI platform that generates, refines, and exports business documents in Word (.docx) and PowerPoint (.pptx) formats.
-It features AI-driven content creation, a structured refinement workflow, and complete project/user management.
+The system provides intelligent content generation, a refinement workflow, and complete user/project management.
 
 🚀 Features
 🔹 AI-Powered Content Generation
 
-Section-wise and slide-wise AI content
+Section-wise and slide-wise content generation
 
-Optional AI-generated outlines
+Supports AI-generated document outlines
 
-Uses Google Gemini for generation & refinement
+Uses Google Gemini for generation and refinement
 
-🔹 Intelligent Refinement Workflow
+🔹 Smart Refinement Workflow
 
 Per-section refinement prompts
 
 Like/Dislike feedback
 
-Commenting + revision history
+Commenting and revision history
 
-Persistent storage for all edits
+Persistent version storage
 
 🔹 Document Export
 
-Clean, professional .docx export (python-docx)
+.docx export using python-docx
 
-Structured .pptx export (python-pptx)
+.pptx export using python-pptx
 
-Files stored automatically inside /exports/
+Clean, structured formatting
+
+Files saved inside /exports/ directory
 
 🔹 User & Project Management
 
@@ -39,18 +41,16 @@ JWT-based authentication
 
 Project dashboard
 
-Document configuration (DOCX / PPTX)
+Select document type (DOCX or PPTX)
 
 🧩 Tech Stack
 Frontend
 
-React + TypeScript
+React
+
+TypeScript
 
 Vite
-
-Component-based architecture
-
-REST API communication
 
 Backend
 
@@ -72,7 +72,6 @@ Easily configurable to PostgreSQL
 
 📂 Project Structure
 OceanAI-DocGenAI/
-│
 ├── backend/
 │   ├── main.py
 │   ├── database.py
@@ -99,34 +98,34 @@ OceanAI-DocGenAI/
     └── vite.config.ts
 
 ⚙️ Backend Setup
-1. Create Virtual Environment
+1. Navigate to backend & create virtual environment
 cd backend
 python -m venv venv
 
-2. Activate Environment
+2. Activate the environment
 
-Windows
+Windows:
 
 venv\Scripts\activate
 
 
-Mac/Linux
+Mac/Linux:
 
 source venv/bin/activate
 
-3. Install Dependencies
+3. Install requirements
 pip install -r requirements.txt
 
-4. Configure Environment Variables
+4. Create and configure .env
 
-Copy .env.example → .env and set:
+Copy .env.example → .env and fill:
 
 GEMINI_API_KEY=<your_api_key>
 GEMINI_MODEL=gemini-pro
 SECRET_KEY=<jwt_secret>
 DATABASE_URL=sqlite:///./app.db
 
-5. Start Backend Server
+5. Run backend
 uvicorn main:app --reload
 
 
@@ -139,41 +138,40 @@ npm install
 npm run dev
 
 
-Frontend runs at:
+Runs on:
 👉 http://localhost:3000
 
-🔌 API Endpoints Overview
-Auth Endpoints
+🔌 API Endpoints
+Auth
 Method	Route	Description
-POST	/auth/register	User registration
-POST	/auth/login	Login & get JWT
-Project Endpoints
+POST	/auth/register	Register user
+POST	/auth/login	Login & receive JWT
+Project
 Method	Route	Description
-POST	/project/create	Create a new project
-POST	/project/{id}/generate	Generate AI document content
-GET	/project/{id}	Fetch full project details
-Refinement Endpoints
+POST	/project/create	Create project
+POST	/project/{id}/generate	Generate AI content
+GET	/project/{id}	Get project details
+Refinement
 Method	Route	Description
-POST	/refine	Refine specific section/slide
+POST	/refine	Refine content
 📤 Document Export
 
-.docx export using python-docx
+DOCX export using python-docx
 
-.pptx export using python-pptx
+PPTX export using python-pptx
 
-Files saved to:
+Files stored under:
 
 /exports/
 
-📌 Future Enhancements
+🧭 Future Enhancements
 
-Multi-language content generation
+Multi-language document generation
 
-Advanced formatting presets
+Template-based exports
 
-Real-time collaboration
+Admin dashboard
 
-Admin & analytics dashboard
+Team collaboration mode
 
-Template-based export system
-
+Advanced PPTX themes
